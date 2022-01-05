@@ -1,4 +1,4 @@
-public class Image {
+public class Image extends Element{
 
     private String imageName;
 
