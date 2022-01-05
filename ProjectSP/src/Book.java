@@ -5,7 +5,7 @@ public class Book {
 
     private String bookTitle;
     private List<Author> bookAuthors = new ArrayList<Author>();
-    private List<Chapter> bookChapters = new ArrayList<Chapter>();
+    private List<Element> bookContents=new ArrayList<Element>();
 
 
     public Book(String bookTitle){
@@ -16,21 +16,18 @@ public class Book {
         this.bookAuthors.add(author);
     }
 
-    public int createChapter(String chapterName){
-        Chapter chapter = new Chapter( chapterName );
-        this.bookChapters.add(chapter);
-        return this.bookChapters.size()-1;
-    }
-
-    public Chapter getChapter(Integer index){
-        return this.bookChapters.get(index);
+    public void addContent(Element content){
+        this.bookContents.add(content);
     }
 
     public void print(){
-        System.out.println(this.bookTitle);
-        System.out.println(this.bookAuthors);
-        System.out.println(this.bookChapters);
-
-
+        System.out.println("Book:"+this.bookTitle);
+        System.out.println("Authors: ");
+        for(Author a:bookAuthors){
+            System.out.println("Author: "+a.getAuthorName()+" ");
+        }
+        for(Element e:bookContents){
+            e.print();
+        }
     }
 }
